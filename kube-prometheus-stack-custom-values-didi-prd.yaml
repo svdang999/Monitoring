@@ -3193,8 +3193,13 @@ prometheus:
 
     ## The remote_write spec configuration for Prometheus.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#remotewritespec
+    ## https://github.com/prometheus-operator/prometheus-operator/issues/2262#issuecomment-997947459
+    ## https://prometheus-didi.smartbilling.com/api/v1/push #https://docs.newrelic.com/docs/infrastructure/prometheus-integrations/install-configure-remote-write/set-your-prometheus-remote-write-integration/
     remoteWrite:
-      - url: https://prometheus-didi.smartbilling.com/api/v1/push #https://docs.newrelic.com/docs/infrastructure/prometheus-integrations/install-configure-remote-write/set-your-prometheus-remote-write-integration/
+      - url: 
+        basicAuth:
+          username: "xxx"
+          password: "xxx"
     ## additionalRemoteWrite is appended to remoteWrite
     additionalRemoteWrite: []
 
