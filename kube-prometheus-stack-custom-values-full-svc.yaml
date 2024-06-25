@@ -722,7 +722,13 @@ alertmanager:
 
     ## Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace.
     ##
-    alertmanagerConfigNamespaceSelector: {}
+    alertmanagerConfigNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects all namespaces
     ## with label "alertmanagerconfig" with values any of "example-namespace" or "example-namespace-2"
     # alertmanagerConfigNamespaceSelector:
@@ -2250,7 +2256,13 @@ prometheusOperator:
     #   argocd.argoproj.io/hook: PreSync
     #   argocd.argoproj.io/hook-delete-policy: HookSucceeded
 
-    namespaceSelector: {}
+    namespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     objectSelector: {}
 
 
@@ -3546,7 +3558,13 @@ prometheus:
     query: {}
 
     ## If nil, select own namespace. Namespaces to be selected for PrometheusRules discovery.
-    ruleNamespaceSelector: {}
+    ruleNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects PrometheusRules in namespaces with label "prometheus" set to "somelabel"
     # ruleNamespaceSelector:
     #   matchLabels:
@@ -3594,7 +3612,13 @@ prometheus:
 
     ## Namespaces to be selected for ServiceMonitor discovery.
     ##
-    serviceMonitorNamespaceSelector: {}
+    serviceMonitorNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects ServiceMonitors in namespaces with label "prometheus" set to "somelabel"
     # serviceMonitorNamespaceSelector:
     #   matchLabels:
@@ -3616,7 +3640,13 @@ prometheus:
     #     prometheus: somelabel
 
     ## If nil, select own namespace. Namespaces to be selected for PodMonitor discovery.
-    podMonitorNamespaceSelector: {}
+    podMonitorNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects PodMonitor in namespaces with label "prometheus" set to "somelabel"
     # podMonitorNamespaceSelector:
     #   matchLabels:
@@ -3638,7 +3668,13 @@ prometheus:
     #     prometheus: somelabel
 
     ## If nil, select own namespace. Namespaces to be selected for Probe discovery.
-    probeNamespaceSelector: {}
+    probeNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects Probe in namespaces with label "prometheus" set to "somelabel"
     # probeNamespaceSelector:
     #   matchLabels:
@@ -3660,7 +3696,13 @@ prometheus:
     #     prometheus: somelabel
 
     ## If nil, select own namespace. Namespaces to be selected for scrapeConfig discovery.
-    scrapeConfigNamespaceSelector: {}
+    scrapeConfigNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
     ## Example which selects scrapeConfig in namespaces with label "prometheus" set to "somelabel"
     # scrapeConfigNamespaceSelector:
     #   matchLabels:
@@ -4452,7 +4494,13 @@ thanosRuler:
     ## If nil, select own namespace. Namespaces to be selected for ServiceMonitor discovery.
     ## See https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#namespaceselector for usage
     ##
-    ruleNamespaceSelector: {}
+    ruleNamespaceSelector:
+      matchExpressions:
+        - key: name
+          operator: In
+          values:
+            - monitoring
+            # - smartbilling-dev
 
     ## If true, a nil or {} value for thanosRuler.thanosRulerSpec.ruleSelector will cause the
     ## prometheus resource to be created with selectors based on values in the helm deployment,
